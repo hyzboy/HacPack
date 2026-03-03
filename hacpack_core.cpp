@@ -157,7 +157,7 @@ bool write_pack(const std::string &out_path,
 
     out.write(hacpack_format::kMagic, static_cast<std::streamsize>(hacpack_format::kMagicSize));
     std::vector<std::uint8_t> header;
-    append_u32_le(header, kVersion);
+    append_u32_le(header, hacpack_format::kVersion);
     append_u32_le(header, static_cast<std::uint32_t>(entries.size()));
     for (const auto &e : entries) {
         append_u32_le(header, e.id);
@@ -206,7 +206,7 @@ bool load_pack(const std::string &path, LoadedPack &pack, std::string &err)
         return false;
     }
     std::uint32_t version = static_cast<std::uint32_t>(b4[0] | (b4[1] << 8) | (b4[2] << 16) | (b4[3] << 24));
-    if (version != kVersion) {
+    if (version != hacpack_format::kVersion) {
         err = "Unsupported pack version (only V2 is supported)";
         return false;
     }

@@ -7,7 +7,7 @@
 namespace hacpack_format {
 inline constexpr char kMagic[4] = {'H', 'A', 'C', '\x1A'};
 inline constexpr std::size_t kMagicSize = sizeof(kMagic);
-inline constexpr std::uint32_t kVersion = 1;
+inline constexpr std::uint32_t kVersion = 7;
 inline constexpr std::size_t kU32Size = 4;
 inline constexpr std::size_t kInfoSizeOffset = kMagicSize;
 inline constexpr std::size_t kInfoBlockOffset = kMagicSize + kU32Size;

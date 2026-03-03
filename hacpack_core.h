@@ -9,8 +9,6 @@
 
 namespace hacpack {
 
-inline constexpr std::uint32_t kVersion = 2;
-
 struct CoreEntry {
     std::uint32_t id = 0;
     std::uint32_t offset = 0;
